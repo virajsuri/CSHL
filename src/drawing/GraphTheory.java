@@ -30,15 +30,15 @@ public class GraphTheory extends Applet implements MouseListener,Runnable{
 	
 	public void run() {
 		Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
-//		while(true) {
-//			
-//				
-//			try {
-//				Thread.sleep(500);
-//			}catch(InterruptedException Ex) {
-//				
-//			}
-//		}
+		while(true) {
+			
+				
+			try {
+				Thread.sleep(150);
+			}catch(InterruptedException Ex) {
+				
+			}
+		}
 	}
 	
 	public void paint(Graphics g) {
@@ -62,9 +62,7 @@ public class GraphTheory extends Applet implements MouseListener,Runnable{
 		
 		int x=e.getX();
 		int y=e.getY();
-		System.out.println();
 		for(int i=0; i<=pointsX.size()-1;i++) {
-//			System.out.println(viraj.util.Maths.distance(x, pointsX.get(i), y, pointsY.get(i)));
 			if(viraj.util.Maths.distance(x, pointsX.get(i), y, pointsY.get(i))<5) {
 				pointsX.add(pointsX.get(i));
 				pointsY.add(pointsY.get(i));
@@ -74,12 +72,9 @@ public class GraphTheory extends Applet implements MouseListener,Runnable{
 			}
 		}
 		verticies++;
-		
-		if(verticies>1) {
-			edges = (verticies + 1);
-			faces = (2 - verticies + edges);
-			System.out.println(faces + " FACES ");
-		}
+//		edges=-1*(2-verticies-faces);
+		edges++;
+		faces = (2 - verticies + edges);
 		
 		System.out.println("add");
 		pointsX.add(e.getX());
