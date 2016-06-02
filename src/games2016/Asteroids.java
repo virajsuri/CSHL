@@ -36,7 +36,21 @@ public class Asteroids extends Applet implements KeyListener,Runnable{
 			@Override
 			public void run() {
 				System.out.println("Create");
-				obj.create(xAsteroids, yAsteroids);
+//				obj.create(xAsteroids, yAsteroids);
+				int randomNum = viraj.util.Maths.randomIntBetween(1, 4);
+				System.out.println("Rando: "+randomNum);
+				switch(randomNum) {
+					case 1: System.out.println(randomNum + " 1"); //top
+						obj.topCreate();
+						break;
+					case 2: System.out.println(randomNum + " 2"); //bottom
+						break;
+					case 3: System.out.println(randomNum + " 3"); //left
+						break;
+					case 4: System.out.println(randomNum + " 4"); //right
+						break;
+					
+				}
 				
 			}
 		},0,4000);
