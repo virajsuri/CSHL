@@ -4,9 +4,8 @@ public class Sort {
 	public static void main(String [] args) {
 		int [] f= {15,5,4,9,7,6,3,1,12,64,87};
 		for(int i=0;i<=f.length-1;i++) {
-			System.out.println(f[i]);
+//			System.out.println(f[i]);
 		}
-		System.out.println();
 		selection(f);
 	}
 	
@@ -20,7 +19,14 @@ public class Sort {
 					numbers[j]=numbers[j-1];
 					numbers[j-1]=placeHolder;
 				}
+				for(int q=0;q<=numbers.length-1;q++) {
+					System.out.println(numbers[q]);
+				}
+				System.out.println();
 			}
+		}
+		for(int i=0;i<=numbers.length-1;i++) {
+			System.out.println(numbers[i]);
 		}
 		return numbers;
 	}
@@ -28,25 +34,29 @@ public class Sort {
 	public static int[] selection(int [] unsorted) {
 		int counter=unsorted.length;
 		int length=unsorted.length;
-		int [] sorted = new int[length];
-		int currentMin=10000000;
 		
-		for(int i=0;i<=unsorted.length-1;i++) {
-			currentMin=1000000000;
-			for(int q=unsorted.length-counter;q>=0;q--) {
-				if(unsorted[q]<currentMin) {
-					currentMin=unsorted[q];
+	
+		
+		for(int i=unsorted.length-1; i>=1; i--) {
+			int highest=unsorted[0];
+			int spot = 0;
+			
+			for(int q=1;q<=i;q++) {
+				if(unsorted[q]>highest) {
+					highest=unsorted[q];
+					spot=q;
 				}
 			}
-			counter--;
-			sorted[i]=currentMin;
-			System.out.println(currentMin);
+			//swap
+			int temp= unsorted[i];
+			unsorted[i]=highest;
+			unsorted[spot]=temp;
 		}
 		
 		System.out.println("Sorted:");
 		for(int i=0;i<=unsorted.length-1;i++) {
-			System.out.println(sorted[i]);
+			System.out.println(unsorted[i]);
 		}
-		return sorted;
+		return unsorted;
 	}
 }
