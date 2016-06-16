@@ -3,7 +3,7 @@ package normalWork;
 import java.util.Arrays;
 
 public class KnightsTour{
-    int size = 5;
+    static int size = 5;
     int validMoves = (size*size)-1;
     int moveNumber=0;
     static boolean [][] visited = new boolean[size][size];
