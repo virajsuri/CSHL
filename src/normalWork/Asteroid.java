@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 public class Asteroid extends Applet implements KeyListener, Runnable {
-	// snyder
-	Image img;
+
 	int xImage = 375;
 	int yImage = 175;
 	int xShipSpeed;
@@ -23,8 +22,6 @@ public class Asteroid extends Applet implements KeyListener, Runnable {
 	int xShipAcceleration;
 	int yShipAcceleration;
 
-	// poop
-	Image img1;
 	ArrayList<Integer> bulletList = new ArrayList<Integer>();
 	ArrayList<Integer> bulletSpeedList = new ArrayList<Integer>();
 	int xBulletSpeed;
@@ -36,15 +33,7 @@ public class Asteroid extends Applet implements KeyListener, Runnable {
 		setSize(800, 600);
 		setBackground(Color.WHITE);
 		addKeyListener(this);
-		try {
-			URL url = new URL((getDocumentBase()), "snyder.jpg");
-			img = ImageIO.read(url);
-			// poop
-			URL url1 = new URL((getDocumentBase()), "poop.png");
-			img1 = ImageIO.read(url1);
-		} catch (IOException e) {
-
-		}
+		
 	}
 
 	public void start() {
@@ -61,7 +50,6 @@ public class Asteroid extends Applet implements KeyListener, Runnable {
 
 		if (bulletList.size() >= 2) {
 			for (int i = 0; i < bulletList.size(); i = i + 4) {
-				g.drawImage(img1, bulletList.get(i), bulletList.get(i + 1), this);
 				g.drawOval(bulletList.get(i), bulletList.get(i + 1), 5, 5);
 			}
 		}
@@ -154,26 +142,26 @@ public class Asteroid extends Applet implements KeyListener, Runnable {
 		}
 	}
 
-	public void keyReleased(KeyEvent e) {
-		int key = e.getKeyCode();
+	public void keyReleased(KeyEvent e) {		
+		int keyCode=e.getKeyCode();
+		
+		if(keyCode == 39) { //right
+			xShipSpeed=0;
+			xShipAcceleration=10;
+		}
+		if(keyCode == 38) { //up
+			yShipSpeed=0;
+			yShipAcceleration=-10;
 
-		if (key == KeyEvent.VK_LEFT) {
-			xShipAcceleration = -15;
-			xShipSpeed = 0;
 		}
-		if (key == KeyEvent.VK_RIGHT) {
-			xShipAcceleration = 15;
-			xShipSpeed = 0;
+		if(keyCode == 37) { //left
+			xShipSpeed=0;
+			xShipAcceleration=-10;
 		}
-		if (key == KeyEvent.VK_UP) {
-			yShipAcceleration = -15;
-			yShipSpeed = 0;
+		if(keyCode == 40) { //down
+			yShipSpeed=0;
+			yShipAcceleration=10;
 		}
-		if (key == KeyEvent.VK_DOWN) {
-			yShipAcceleration = 15;
-			yShipSpeed = 0;
-		}
-
 	}
 
 }

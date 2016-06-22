@@ -65,6 +65,7 @@ public class LunchMenu extends JFrame implements ActionListener{
 		
 		JPanel submitPanel = new JPanel();
 		finalOrder = new JLabel();
+		submitPanel.add(finalOrder);
 		tabbedPane.addTab("Submit",submitPanel);
 
 		
@@ -75,7 +76,7 @@ public class LunchMenu extends JFrame implements ActionListener{
 	ArrayList<String> order = new ArrayList<String>();
 	
 	public void actionPerformed(ActionEvent e) {
-		String command = e.getActionCommand(),mealChoice;
+		String command = e.getActionCommand(),mealChoice="";
 		name.add(nameField.getText());
 		grade.add(Integer.parseInt(gradeField.getText()));
 		
@@ -84,7 +85,7 @@ public class LunchMenu extends JFrame implements ActionListener{
 		
 		for(int i=0;i<mealNames.length;i++) {
 			if(mealsButton[i].getText().equals(command)) {
-				String mealChoice = command;
+				mealChoice = command;
 			}
 			else {
 				mealsButton[i].setEnabled(false);
@@ -93,17 +94,20 @@ public class LunchMenu extends JFrame implements ActionListener{
 		order.add(mealChoice);
 		
 		if(command.equals("Submit")) {
+			
 			for(int i=0; i<=name.size()-1;i++) {
-				mealsButton[i].setEnabled(true);
+				
 				try {
-					finalOrder.setText(name.get(i)+"\n"+grade.get(i)+"\n"+order.get(i));
+					mealsButton[i].setEnabled(true);
+					finalOrder.setText(finalOrder.getText()+"\n"+name.get(i)+"\n"+"Grade"+grade.get(i)+"\n"+"Order:"+order.get(i));
 					System.out.println();
-					System.out.println(finalOrder.getText());
+					System.out.println(finalOrder.getText()+"print label"); 
 					System.out.println();
 				} catch (IndexOutOfBoundsException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				nameField.setText("");
+				gradeField.setText("");
 			}
 			
 		

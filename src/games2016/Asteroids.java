@@ -123,8 +123,6 @@ public class Asteroids extends Applet implements KeyListener,Runnable{
 	
 	
 	public void keyPressed(KeyEvent e) {
-		
-		
 		int keyCode=e.getKeyCode();
 		//r 39
 		//u 38
@@ -149,6 +147,7 @@ public class Asteroids extends Applet implements KeyListener,Runnable{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		genAsteroids();
 		int keyCode=e.getKeyCode();
 		//r 39
 		//u 38	
@@ -175,6 +174,13 @@ public class Asteroids extends Applet implements KeyListener,Runnable{
 		
 	}
 	
-	
+	public static void genAsteroids() {
+		int asX=350,asY=0;
+		for(asY=0; asY>=700;asY++) {
+			asY+=30;
+			
+		}
+		
+	}
 	
 }
