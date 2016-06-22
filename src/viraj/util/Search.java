@@ -1,10 +1,12 @@
 package viraj.util;
 
+import javax.swing.JOptionPane;
+
 public class Search {
 	public static void main(String [] args) {
 		Search object = new Search();
 		int arraysize=10000;
-		int searchInt = 99;
+		int searchInt = Integer.parseInt(JOptionPane.showInputDialog("number?"));
 		int [] arrays = new int[arraysize];
 		arrays[0]=searchInt;
 		for(int i=1;i<=arraysize-1;i++) {

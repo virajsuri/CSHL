@@ -3,7 +3,7 @@ package normalWork;
 public class nameSort {
 	
 	public static void main(String [] args) {
-		String [] names = {"Megan","Shaun","Vuh","Viraj"};
+		String [] names = {"Megan","Shaun","Vuh","Viraj","William","Reed","Daraius","Zee"};
 		
 		
 		selection(names);
